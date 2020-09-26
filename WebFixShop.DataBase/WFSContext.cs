@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace WebfixShop.Database
 {
-	public class WFSContext :DbContext
+	public class WFSContext :DbContext,IDisposable
 	{
-		public WFSContext() : base("WebFixShopConnection")
+		public WFSContext() : base("WebFixShopConnectionString")
 		{
 
 		}

@@ -1,0 +1,62 @@
+﻿@model List<WebfixShop.Entities.Product>
+@{
+    ViewBag.Title = "ProductTable";
+}
+<div>
+    <form method="post" action="/Product/ProductTable">
+        <input name="Search" id="searchval"/>
+        <button type="button" id="srcbtn">Search</button>
+    </form>
+
+<button>New</button>
+</div>
+<div id="tableContainer">
+	<table>
+		<thead>
+			<tr>
+				<td>Product Name</td>
+				<td>Category</td>
+				<td>Price</td>
+				<td>Action</td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var product in Model)
+			{
+				<tr>
+					<td>@product.Name</td>
+					<td>@product.Category</td>
+					<td>@product.Price</td>
+					<td>
+						<button>Edit</button>
+						<button>Delete</button>
+					</td>
+
+				</tr>
+
+			}
+		</tbody>
+	</table>
+</div>
+
+<script>
+	$("#srcbtn").click(function () {
+		var searchValue = $("#searchval").val();
+
+		$.ajax({
+			url: "/Product/ProductTable",
+			data: {
+				search: searchValue
+			}
+		}).done(function (data) {
+			$("#tableContainer").html(data);
+			alert(data)
+		}).fail(function (XMLHttpRequest, textStatus, errorthrown) {
+			alert("fail");
+		});
+             
+
+	});
+
+</script>
+

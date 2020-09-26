@@ -7,13 +7,13 @@ namespace WebFixShop.DataBase.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Initialized : IMigrationMetadata
+    public sealed partial class webfixfirstmgn : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initialized));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(webfixfirstmgn));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008281955073_Initialized"; }
+            get { return "202008290556126_webfixfirstmgn"; }
         }
         
         string IMigrationMetadata.Source

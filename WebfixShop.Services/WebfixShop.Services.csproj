@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D9F0B874-E243-4DDB-9708-CC0CEE5305DB}</ProjectGuid>
+    <ProjectGuid>{18EDE01D-7EB3-45C3-AF33-F054E7C90A6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebFixShop.DataBase</RootNamespace>
-    <AssemblyName>WebFixShop.DataBase</AssemblyName>
+    <RootNamespace>WebfixShop.Services</RootNamespace>
+    <AssemblyName>WebfixShop.Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,28 +48,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202008290556126_webfixfirstmgn.cs" />
-    <Compile Include="Migrations\202008290556126_webfixfirstmgn.Designer.cs">
-      <DependentUpon>202008290556126_webfixfirstmgn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ProductsService.cs" />
+    <Compile Include="CategoriesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WFSContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebFixShop.DataBase\WebFixShop.DataBase.csproj">
+      <Project>{d9f0b874-e243-4ddb-9708-cc0cee5305db}</Project>
+      <Name>WebFixShop.DataBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebfixShop.Entities\WebfixShop.Entities.csproj">
-      <Project>{38ed1d26-fc60-4349-a1d0-47324db4141f}</Project>
+      <Project>{38ED1D26-FC60-4349-A1D0-47324DB4141F}</Project>
       <Name>WebfixShop.Entities</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202008290556126_webfixfirstmgn.resx">
-      <DependentUpon>202008290556126_webfixfirstmgn.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

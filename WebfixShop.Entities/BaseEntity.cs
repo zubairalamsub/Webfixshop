@@ -9,6 +9,6 @@ namespace WebfixShop.Entities
 
 		public int ID { get; set; }
 		public string Name { get; set; }
-		public string Descreption { get; set; }
+		public string Description { get; set; }
 	}
 }

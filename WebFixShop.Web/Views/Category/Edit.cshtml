@@ -1,0 +1,18 @@
+﻿@model WebfixShop.Entities.Category
+@{
+    ViewBag.Title = "Edit";
+}
+    <form method="post">
+
+        <input type="hidden"name="ID" value="@Model.ID" />
+        <h2>Create Category </h2>
+        <label>Name:</label>
+        <input  name="Name" value="@Model.Name" />
+        <br />
+        <label>Descrieption:</label>
+        <input name="Description" value="@Model.Description" />
+        <br />
+        <button type="submit">Save</button>
+
+    </form>
+

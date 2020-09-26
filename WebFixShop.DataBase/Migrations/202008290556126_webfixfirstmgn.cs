@@ -3,7 +3,7 @@ namespace WebFixShop.DataBase.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initialized : DbMigration
+    public partial class webfixfirstmgn : DbMigration
     {
         public override void Up()
         {
@@ -13,7 +13,7 @@ namespace WebFixShop.DataBase.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         Name = c.String(),
-                        Descreption = c.String(),
+                        Description = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -24,7 +24,7 @@ namespace WebFixShop.DataBase.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Name = c.String(),
-                        Descreption = c.String(),
+                        Description = c.String(),
                         Category_ID = c.Int(),
                     })
                 .PrimaryKey(t => t.ID)
