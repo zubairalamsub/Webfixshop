@@ -23,7 +23,7 @@ namespace WebFixShop.Web.Controllers
             var products = productservice.GetProducts();
             if (string.IsNullOrEmpty(search) == false)
             {
-                products = products.Where(x => x.Name.Contains(search)).ToList();
+                products = products.Where(x => x.Name!=null&&x.Name.Contains(search.ToLower())).ToList();
             }
             
             return PartialView(products);
@@ -43,6 +43,32 @@ namespace WebFixShop.Web.Controllers
             return RedirectToAction("ProductTable");
 
         }
+
+        [HttpGet]
+        public ActionResult Edit( int ID)
+        {
+            var product = productservice.GetProducts(ID);
+            return PartialView(product);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+
+            productservice.UpdateProduct(product);
+            return RedirectToAction("ProductTable");
+
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int ID)
+        {
+
+            productservice.DeleteProduct(ID);
+            return RedirectToAction("ProductTable");
+
+        }
+
 
     }
 }

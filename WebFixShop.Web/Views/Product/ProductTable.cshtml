@@ -8,7 +8,7 @@
         <button type="button" id="srcbtn">Search</button>
     </form>
 
-<button>New</button>
+<button id="newbtn">New</button>
 </div>
 <div id="tableContainer">
 	<table>
@@ -28,8 +28,8 @@
 					<td>@product.Category</td>
 					<td>@product.Price</td>
 					<td>
-						<button>Edit</button>
-						<button>Delete</button>
+						<button class="btn-primary edit" data-id="@product.ID">Edit</button>
+						<button class="btn-danger deletebtn"data-id="@product.ID">Delete</button>
 					</td>
 
 				</tr>
@@ -54,6 +54,63 @@
 		}).fail(function (XMLHttpRequest, textStatus, errorthrown) {
 			alert("fail");
 		});
+             
+
+	});
+
+	$("#newbtn").click(function () {
+		
+
+		$.ajax({
+			url: "/Product/Create",
+			
+			
+		}).done(function (data) {
+			$("#actionContainer").html(data);
+			alert(data)
+		}).fail(function (XMLHttpRequest, textStatus, errorthrown) {
+			alert("fail");
+		});
+             
+
+	});
+	$(".edit").click(function () {
+		
+
+		$.ajax({
+			url: "/Product/Edit",
+			data: {
+				ID:$(this).attr('data-Id')
+			}
+			
+		}).done(function (data) {
+			$("#actionContainer").html(data);
+			//alert(data)
+		}).fail(function (XMLHttpRequest, textStatus, errorthrown) {
+			alert("fail");
+		});
+             
+
+	});
+	$(".deletebtn").click(function () {
+		var conformDelete = confirm("Are you sure ?")
+		if (conformDelete == true) {
+        $.ajax({
+			type:"POST",
+			url: "/Product/Delete",
+			data: {
+				ID:$(this).attr('data-Id')
+			}
+			
+		}).done(function (data) {
+			$("#tableContainer").html(data);
+			//alert(data)
+		}).fail(function (XMLHttpRequest, textStatus, errorthrown) {
+			alert("fail");
+		});
+		}
+
+		
              
 
 	});

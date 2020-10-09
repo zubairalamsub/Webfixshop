@@ -4,7 +4,7 @@
 }
 
 <h2>Create</h2>
-<form method="post">
+<form  id="createform">
     <h2>Create Product </h2>
     <label>Name:</label>
     <input name="Name" />
@@ -15,7 +15,28 @@
     <label>Price:</label>
     <input name="Price" />
     <br />
-    <button type="submit">Save</button>
+    <button type="button" id="createbtn">Save</button>
 
 </form>
+
+<script>
+    $("#createbtn").click(function () {
+		//var searchValue = $("#searchval").val();
+
+		$.ajax({
+			type:"POST",
+			url: "/Product/Create",
+			data:$("#createform").serialize()
+
+			
+		}).done(function (data) {
+			$("#tableContainer").html(data);
+			alert(data)
+		}).fail(function (XMLHttpRequest, textStatus, errorthrown) {
+			alert("fail");
+		});
+             
+
+	});
+</script>
 
